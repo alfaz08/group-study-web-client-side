@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="navbar bg-custom-color">
   <div className="navbar-start">
     <div className="dropdown">
-     <img src="https://i.ibb.co/x1wP1Zd/study-group-logo-free-vector.jpg" alt="" className="h-16" />
+     <img src="https://i.ibb.co/x1wP1Zd/study-group-logo-free-vector.jpg" alt="" className="h-16 rounded-full" />
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         {navLinks}
       </ul>

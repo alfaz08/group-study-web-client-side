@@ -46,7 +46,7 @@ const Register = () => {
         
         </div>
         <div className="form-control mt-6">
-          <button className=" text-black btn bg-custom-color hover:bg-black hover:text-white">Register</button>
+          <button className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">Register</button>
         </div>
       </form>
 

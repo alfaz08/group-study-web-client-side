@@ -36,16 +36,12 @@ const Slider = () => {
           
         </SwiperSlide>
 
-        
         <SwiperSlide>
-          {/* <img  src="https://i.ibb.co/mN994np/1x-1.jpg" alt="" /> */}
-          <div className="image-container">
-          <img src="https://i.ibb.co/G788C3r/2.jpg" alt="" />
-          
+        <div className="image-container">
+          <img  src="https://i.ibb.co/c1npkXB/10-Ways-To-Cope-Up-With-Online-Classes-scaled.jpg" alt="" />
+         
         </div>
-          
         </SwiperSlide>
-
         <SwiperSlide>
           {/* <img  src="https://i.ibb.co/mN994np/1x-1.jpg" alt="" /> */}
           <div className="image-container">
@@ -55,16 +51,20 @@ const Slider = () => {
           
         </SwiperSlide>
 
-
         <SwiperSlide>
-        <div className="image-container">
-          <img  src="https://i.ibb.co/c1npkXB/10-Ways-To-Cope-Up-With-Online-Classes-scaled.jpg" alt="" />
-         
+          {/* <img  src="https://i.ibb.co/mN994np/1x-1.jpg" alt="" /> */}
+          <div className="image-container">
+          <img src="https://i.ibb.co/44kZGS3/ONLINE-ASSIGNMENT-HELP-1080x675.jpg" alt="" />
+          
         </div>
+          
         </SwiperSlide>
+
 
         
 
+        
+        
        
        
         
