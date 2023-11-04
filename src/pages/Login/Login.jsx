@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
 import { FaGooglePlusG } from "react-icons/fa";
+import useAuth from "../../components/hooks/useAuth";
 
 
 const Login = () => {
 
+    const {googleLogin} =useAuth()
   
-  
+
+
+    //google Login
+    const handleSocialLogin=(media)=>{
+      media()
+      .then(res=>console.log(res))
+      .catch(err=>console.log(err))
+    }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 md:ml-32">
@@ -53,7 +62,7 @@ const Login = () => {
       <hr className="ml-2 mr-4 w-36 border-black"/>
      </div>
      <div className="text-center mb-4 mt-4 ">
-      <button   className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white"><FaGooglePlusG  className="text-white text-2xl "></FaGooglePlusG>Login with google</button>
+      <button onClick={()=>handleSocialLogin(googleLogin)}   className=" text-red-600 font-bold btn border-black bg-custom-color hover:bg-black hover:text-white"><FaGooglePlusG  className=" text-red-600 text-2xl "></FaGooglePlusG>Login with google</button>
      </div>
 
 
