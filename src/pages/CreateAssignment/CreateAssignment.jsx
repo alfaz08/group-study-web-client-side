@@ -2,10 +2,15 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt } from "react-icons/fa";
-
+import useAuth from "../../components/hooks/useAuth";
+import axios from "axios";
 
 
 const CreateAssignment = () => {
+
+  const {user} = useAuth()
+  const userEmail =user.email;
+  
 
 
   const [startDate, setStartDate] = useState(new Date());
@@ -19,15 +24,38 @@ const CreateAssignment = () => {
    const type =form.type.value;
    const marks =form.marks.value;
    const date =form.date.value;
-   console.log(title,photo,des,type,marks,photo,date);
+  
+   const allAssignment ={
+    title,photo,des,type,marks,date,userEmail
+   }
+   form.reset()
+  
+
+   //post data
+   axios.post('http://localhost:5000/allassignment', allAssignment, {
+  headers: {
+    'Content-Type': 'application/json'
+  }
+   })
+  .then(response => {
+  console.log(response.data);
+   })
+  .catch(error => {
+  console.error(error);
+    });
+  
+
+
+
+
    }
 
   return (
     <div>
 
-       <div className="hero bg-base-200">
+       <div className=" bg-base-200">
   <div className="hero-content flex-col ">
-    <div className="text-center lg:text-left">
+    <div className="text-center  lg:text-left">
       <h1 className="text-5xl font-bold text-center">Assignment Form</h1>
       <p className="py-6 text-center">Make your Assignment on this form</p>
     </div>
@@ -39,14 +67,17 @@ const CreateAssignment = () => {
           <label className="label">
             <span className="label-text">Title</span>
           </label>
-          <input type="text" name="title" placeholder="Title" className="input input-bordered" required />
+          
+          <input type="text" name="title" placeholder="Title" className="text-black bg-custom-color input input-bordered" required />
         </div>
         
         <div className="form-control">
           <label className="label">
+            
             <span className="label-text">Description</span>
           </label>
-          <input type="text" name="des" placeholder="Description" className="input input-bordered" required />
+          
+          <input type="text"  name="des" placeholder="Description" className="text-black bg-custom-color input input-bordered h-28" required />
           
         </div>
 
@@ -54,7 +85,7 @@ const CreateAssignment = () => {
           <label className="label">
             <span className="label-text">Assignment Photo URL</span>
           </label>
-          <input type="text" name="photo" placeholder="Assignment Photo" className="input input-bordered" required />
+          <input type="text" name="photo" placeholder="Assignment Photo" className="text-black bg-custom-color input input-bordered" required />
           
         </div>
 
@@ -62,7 +93,7 @@ const CreateAssignment = () => {
   <label className="label">
     <span className="label-text">Type</span>
   </label>
-  <select name="type" className="input input-bordered" required>
+  <select name="type" className="input input-bordered text-black bg-custom-color " required>
     <option value="" hidden>
       Select Difficulty Level
     </option>
@@ -77,7 +108,7 @@ const CreateAssignment = () => {
           <label className="label">
             <span className="label-text">Marks</span>
           </label>
-          <input type="number" name="marks" placeholder="Marks" className="input input-bordered" required />
+          <input type="number" name="marks" placeholder="Marks" className="input input-bordered text-black bg-custom-color " required />
           
         </div>
 
@@ -86,14 +117,14 @@ const CreateAssignment = () => {
             <span className="label-text">Due Date</span>
           </label>
            
-          <div className="flex items-center border border-bg-base-200 rounded">
+          <div className="text-black bg-custom-color flex items-center border border-bg-base-200 rounded">
   <span className="p-2">
     <FaCalendarAlt />
   </span>
   <DatePicker
     type="text"
     name="date"
-    className="border-black border-none"
+    className="border-black border-none text-black bg-custom-color "
     selected={startDate}
     onChange={(date) => setStartDate(date)}
   />
