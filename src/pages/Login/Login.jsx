@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGooglePlusG } from "react-icons/fa";
 import useAuth from "../../components/hooks/useAuth";
-
+import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
     const {googleLogin,signIn} =useAuth()
+    const navigate = useNavigate()
+    const location =useLocation()
+    const [loginError,setLoginError] =useState('')
   
 
 
@@ -22,8 +27,16 @@ const Login = () => {
     const password =e.target.password.value;
     console.log(email,password);
     signIn(email,password)
-    .then(res=>console.log(res.user))
-    .catch(error=>console.log(error))
+    .then(res=>{console.log(res.user)
+      navigate(location?.state?location.state:'/')
+     }) 
+     .catch(error=>{
+      console.log(error)
+      setLoginError(error.message)
+      toast.error(error.message)
+      e.target.reset()
+     })
+  
  
     }
 
@@ -94,8 +107,8 @@ const Login = () => {
 
 
      </div>
-
-     
+   
+     <ToastContainer/>
  
     </div>
   );

@@ -9,9 +9,7 @@ const Navbar = () => {
 
   const handleLogOut=()=>{
     logOut()
-    .then(()=>{
-      toast('user logged out successfully')
-    })
+    .then(()=>{})
     .catch(error=>toast(error))
   }
 
@@ -61,7 +59,7 @@ const Navbar = () => {
       <>
       {
         user.displayName?
-        <span className="mr-2 p-2 bg-purple-400 font-bold h-12 flex items-center rounded-xl">{user.displayName}</span>
+        <span className="mr-2 p-2 bg-base-200 font-bold h-12 flex items-center rounded-xl">{user.displayName}</span>
         :
         <span className="mr-2  bg-base-200 h-12 flex items-center rounded-xl">{user.email}</span>
       }

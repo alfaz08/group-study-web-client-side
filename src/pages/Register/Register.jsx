@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FaGooglePlusG } from "react-icons/fa";
 import useAuth from "../../components/hooks/useAuth";
 import { useState } from "react";
 
 import { ToastContainer, toast } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
+import { updateProfile } from "firebase/auth";
 
 
 
@@ -12,6 +13,9 @@ const Register = () => {
 
   const {googleLogin,createUser} =useAuth()
   const [error,setError] =useState("")
+  const [registerSuccess,setRegisterSuccess] =useState('')
+ 
+  const [loggedIn,setLoggedIn] =useState(false)
   
 
 
@@ -37,14 +41,29 @@ const Register = () => {
       const errorMessage = "Password must be at least eight characters long, with at least one letter and one digit."
      setError(errorMessage);
      toast(errorMessage)
-    }
+     const passwordInput = document.querySelector('input[name="password"]')
+      if(password){
+        passwordInput.value=''
+      }
+    } 
+    // navigate('/')
     else{
       setError('')
       createUser(email,password)
-      .then(res=>console.log(res.user))
+      .then(userCredentials=>{
+        const user= userCredentials.user;
+        updateProfile(user,{
+          displayName:name,
+          photoURL: photo
+        })
+        toast.success('Registration and Login Successful') 
+       setLoggedIn(true)
+      }
+
+      )
       .catch(error=>{
         console.error(error.message)
-        toast(error.message)
+        toast.error('Something Went Wrong')
       })
     }
 
@@ -57,9 +76,9 @@ const Register = () => {
 
   return (
     <div>
-      {/* {
+      {
         loggedIn && <Navigate to="/"></Navigate>
-      } */}
+      }
       <div className="grid grid-cols-1 md:grid-cols-4 lg:ml-80">
      <div className="">
      <div className="hero">
