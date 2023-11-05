@@ -27,7 +27,7 @@ const Features = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
        {
-        assignments.map(assignment=> <FeaturesCard key={assignment._id} assignment={assignment}></FeaturesCard> )
+        assignments.slice(0, 6).map(assignment=> <FeaturesCard key={assignment._id} assignment={assignment}></FeaturesCard> )
        }
       </div>
     </div>

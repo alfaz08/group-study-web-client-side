@@ -1,12 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const Navbar = () => {
 
   const {user,logOut} =useAuth();
 
-
+  
+  const [showNameHover,setShowNameHover] =useState(false)
   const handleLogOut=()=>{
     logOut()
     .then(()=>{})
