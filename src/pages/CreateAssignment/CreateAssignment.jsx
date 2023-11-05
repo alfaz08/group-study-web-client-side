@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import useAuth from "../../components/hooks/useAuth";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const CreateAssignment = () => {
@@ -28,7 +29,7 @@ const CreateAssignment = () => {
    const allAssignment ={
     title,photo,des,type,marks,date,userEmail
    }
-   form.reset()
+  //  
   
 
    //post data
@@ -39,6 +40,11 @@ const CreateAssignment = () => {
    })
   .then(response => {
   console.log(response.data);
+  if(response.data.insertedId){
+    toast.success('Successfully created!');
+    form.reset()
+     }
+
    })
   .catch(error => {
   console.error(error);
@@ -142,6 +148,7 @@ const CreateAssignment = () => {
     </div>
   </div>
 </div>
+<Toaster/>
     </div>
   );
 };
