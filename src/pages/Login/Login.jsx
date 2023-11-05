@@ -5,7 +5,7 @@ import useAuth from "../../components/hooks/useAuth";
 
 const Login = () => {
 
-    const {googleLogin} =useAuth()
+    const {googleLogin,signIn} =useAuth()
   
 
 
@@ -15,6 +15,25 @@ const Login = () => {
       .then(res=>console.log(res))
       .catch(err=>console.log(err))
     }
+ 
+    const handleLogin=e=>{
+      e.preventDefault();
+    const email =e.target.email.value;
+    const password =e.target.password.value;
+    console.log(email,password);
+    signIn(email,password)
+    .then(res=>console.log(res.user))
+    .catch(error=>console.log(error))
+ 
+    }
+
+
+    
+
+
+
+
+
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 md:ml-32">
@@ -29,7 +48,7 @@ const Login = () => {
       <p className="py-6">Welcome to our website and explore it</p>
     </div>
     <div className="card flex-shrink-0 w-full shadow-2xl bg-custom-color">
-      <form  className="card-body">
+      <form onSubmit={handleLogin} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text text-xl font-semibold">Email</span>

@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import { FaGooglePlusG } from "react-icons/fa";
 import useAuth from "../../components/hooks/useAuth";
+import { useState } from "react";
 
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Register = () => {
 
-   
-  const {googleLogin} =useAuth()
+  const {googleLogin,createUser} =useAuth()
+  const [error,setError] =useState("")
   
 
 
@@ -18,7 +21,37 @@ const Register = () => {
     .then(res=>console.log(res))
     .catch(err=>console.log(err))
   }
+  
 
+  const handleRegister =e =>{
+
+      e.preventDefault();
+        const form = e.target;
+        const name =form.name.value;
+        const photo =form.photo.value;
+        const email =form.email.value;
+    const password =form.password.value;
+    console.log(email,password,name,photo);
+
+    if((!/^(?=.*[A-Z])(?=.*[\W_]).{6,}$/.test(password)) ){
+      const errorMessage = "Password must be at least eight characters long, with at least one letter and one digit."
+     setError(errorMessage);
+     toast(errorMessage)
+    }
+    else{
+      setError('')
+      createUser(email,password)
+      .then(res=>console.log(res.user))
+      .catch(error=>{
+        console.error(error.message)
+        toast(error.message)
+      })
+    }
+
+
+
+
+  }
 
 
 
@@ -35,7 +68,7 @@ const Register = () => {
     <img className="hidden md:block w-80" src="https://i.ibb.co/brfMXPh/203-2035339-register-user-register-online-icon-png.jpg" alt="" />
     </div>
     <div className="card w-full shadow-2xl bg-custom-color">
-      <form  className="card-body">
+      <form onSubmit={handleRegister}  className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text text-xl font-semibold">Your Name</span>
@@ -95,7 +128,7 @@ const Register = () => {
      
      </div>
 
- 
+     <ToastContainer/>
    </div>
     </div>
   );
