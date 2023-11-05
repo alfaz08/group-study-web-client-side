@@ -47,6 +47,7 @@ const Navbar = () => {
         </ul>
       </div>
      <img className="h-16" src="https://i.ibb.co/x1wP1Zd/study-group-logo-free-vector.jpg" alt="" />
+     <span className="hidden lg:block font-bold text-xl">Online Group Study</span>
     </div>
     <div className="navbar-center hidden md:flex">
       <ul className="menu menu-horizontal px-1">

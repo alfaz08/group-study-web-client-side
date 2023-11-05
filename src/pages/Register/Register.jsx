@@ -38,7 +38,7 @@ const Register = () => {
     console.log(email,password,name,photo);
 
     if((!/^(?=.*[A-Z])(?=.*[\W_]).{6,}$/.test(password)) ){
-      const errorMessage = "Password must be at least eight characters long, with at least one letter and one digit."
+      const errorMessage = "Password must be at least six characters long, with at least one letter and one digit."
      setError(errorMessage);
      toast(errorMessage)
      const passwordInput = document.querySelector('input[name="password"]')
