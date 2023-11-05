@@ -60,7 +60,7 @@ const Register = () => {
       {/* {
         loggedIn && <Navigate to="/"></Navigate>
       } */}
-      <div className="grid grid-cols-1 md:grid-cols-4 md:ml-80">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:ml-80">
      <div className="">
      <div className="hero">
   <div className="hero-content flex-col md:w-[700px]">

@@ -36,8 +36,8 @@ const Login = () => {
 
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 md:ml-32">
-     <div className="hidden md:block ">
+    <div className="grid grid-cols-1 lg:grid-cols-4 lg:ml-36">
+     <div className="hidden lg:block ">
        <img className="h-[530px] w-[420px] mt-32" src="https://i.ibb.co/Qkbj5bY/Screenshot-2023-10-18-115151.jpg" alt="" />
      </div>
      <div className="">
