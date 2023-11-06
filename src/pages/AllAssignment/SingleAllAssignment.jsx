@@ -71,15 +71,15 @@ const SingleAllAssignment = ({assignment,currentUserEmail,newAssignmentList,setN
     <p className="font-bold">Due Date: {date}</p>
     <div className="card-actions justify-center">
       
-    <button className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">See Details</button>
+   
       
-    {/* <Link to={`/allassignment/${_id}`}>
-      <button className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">Update </button>
-      </Link> */}
+      <Link to={`/details/${_id}`}>
+      <button className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">Show Details</button>
+      </Link> 
 
     {
       currentEmail === userEmail ?
-     <Link to={`/allassignment/${_id}`}>
+     <Link to={`/update/${_id}`}>
       <button className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">Update </button>
       </Link>
       

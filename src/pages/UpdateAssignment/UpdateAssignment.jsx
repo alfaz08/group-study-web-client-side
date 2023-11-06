@@ -40,7 +40,7 @@ const UpdateAssignment = () => {
   
    axios({
     method: 'put',
-    url: `http://localhost:5000/allassignment/${loadedAssignment._id}`,
+    url: `http://localhost:5000/update/${loadedAssignment._id}`,
     headers: {
       'Content-Type': 'application/json'
     },

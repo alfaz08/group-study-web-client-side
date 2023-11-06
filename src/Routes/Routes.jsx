@@ -9,6 +9,11 @@ import PrivateRoute from "../Providers/PrivateRoute";
 import CreateAssignment from "../pages/CreateAssignment/CreateAssignment";
 import MyAssignment from "../pages/MyAssignment/MyAssignment";
 import UpdateAssignment from "../pages/UpdateAssignment/UpdateAssignment";
+import CardDetails from "../pages/CardDetails/CardDetails";
+
+
+
+
 const router = createBrowserRouter([
     {
      path: "/",
@@ -43,10 +48,17 @@ const router = createBrowserRouter([
         loader: ()=>fetch('http://localhost:5000/allassignment')
       },
       {
-        path:"/allassignment/:id",
+        path:"/update/:id",
         element: <PrivateRoute> <UpdateAssignment></UpdateAssignment> </PrivateRoute>,
-         loader:({params})=>fetch(`http://localhost:5000/allassignment/${params.id}`)
+         loader:({params})=>fetch(`http://localhost:5000/update/${params.id}`)
       },
+      {
+
+        path:"/details/:id",
+        element: <PrivateRoute> <CardDetails></CardDetails> </PrivateRoute>,
+        loader: ()=>fetch('http://localhost:5000/allassignment')
+        
+      }
      ]
     },
      ]);
