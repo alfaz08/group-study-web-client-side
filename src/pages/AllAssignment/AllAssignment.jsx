@@ -3,24 +3,29 @@ import { useState } from "react";
 
 import SingleAllAssignment from "./SIngleAllAssignment";
 import { useLoaderData } from "react-router-dom";
+import useAuth from "../../components/hooks/useAuth";
 
 
 const AllAssignment = () => {
-  const [assignments, setAssignments] = useState([]);
+  // const [assignments, setAssignments] = useState([]);
   const [selectValue,setSelectedValue] =useState('')
   const allData=useLoaderData()
+  const {user} = useAuth()
+  const currentUserEmail =user?.email;
+  
+  const [newAssignmentList,setNewAssignmentList] =useState(allData)
 
-
+ 
 
    const handleSelectChange=e=>{
     setSelectedValue(e.target.value)
     
    }
-   console.log(selectValue);
+  //  console.log(selectValue);
 
-   const easy = allData.filter(item=>item.type==='easy')
-   const medium = allData.filter(item=>item.type==='medium')
-   const hard = allData.filter(item=>item.type==='hard')
+   const easy = newAssignmentList.filter(item=>item.type==='easy')
+   const medium = newAssignmentList.filter(item=>item.type==='medium')
+   const hard = newAssignmentList.filter(item=>item.type==='hard')
    const all=useLoaderData()
 
    
@@ -56,21 +61,21 @@ const AllAssignment = () => {
        {
         selectValue==='easy'?
         (
-          easy.map(assignment=> <SingleAllAssignment key={assignment._id} assignment={assignment}></SingleAllAssignment> )
+          easy.map(assignment=> <SingleAllAssignment newAssignmentList={newAssignmentList} setNewAssignmentList={setNewAssignmentList}  key={assignment._id} currentUserEmail={currentUserEmail} assignment={assignment}></SingleAllAssignment> )
         ):
         selectValue==='medium'?
         (
-          medium.map(assignment=> <SingleAllAssignment key={assignment._id} assignment={assignment}></SingleAllAssignment> )
+          medium.map(assignment=> <SingleAllAssignment newAssignmentList={newAssignmentList} setNewAssignmentList={setNewAssignmentList} key={assignment._id} currentUserEmail={currentUserEmail} assignment={assignment}></SingleAllAssignment> )
         ):
         selectValue==='hard'?
         (
-          hard.map(assignment=> <SingleAllAssignment key={assignment._id} assignment={assignment}></SingleAllAssignment> )
+          hard.map(assignment=> <SingleAllAssignment key={assignment._id}  newAssignmentList={newAssignmentList} setNewAssignmentList={setNewAssignmentList} currentUserEmail={currentUserEmail} assignment={assignment}></SingleAllAssignment> )
         ):
         selectValue==='all'?
         (
-          all.map(assignment=> <SingleAllAssignment key={assignment._id} assignment={assignment}></SingleAllAssignment> )
+          newAssignmentList.map(assignment=> <SingleAllAssignment key={assignment._id} currentUserEmail={currentUserEmail} newAssignmentList={newAssignmentList} setNewAssignmentList={setNewAssignmentList} assignment={assignment}></SingleAllAssignment> )
         ):
-        allData.map(assignment=> <SingleAllAssignment key={assignment._id} assignment={assignment}></SingleAllAssignment> )
+        newAssignmentList.map(assignment=> <SingleAllAssignment currentUserEmail={currentUserEmail} newAssignmentList={newAssignmentList} setNewAssignmentList={setNewAssignmentList} key={assignment._id} assignment={assignment}></SingleAllAssignment> )
        }
       </div>
     </div>
