@@ -29,6 +29,7 @@ const Navbar = () => {
     <>
     <li><NavLink to="/createassignment">Create Assignment</NavLink></li>
     <li><NavLink to="/myassignment">My Assignment</NavLink></li>
+    <li><NavLink to="/submitassignment">Submit Assignment</NavLink></li>
     </>
   }
 

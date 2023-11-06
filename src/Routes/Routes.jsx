@@ -10,6 +10,7 @@ import CreateAssignment from "../pages/CreateAssignment/CreateAssignment";
 import MyAssignment from "../pages/MyAssignment/MyAssignment";
 import UpdateAssignment from "../pages/UpdateAssignment/UpdateAssignment";
 import CardDetails from "../pages/CardDetails/CardDetails";
+import SubmittedAssignment from "../pages/SumittedAssignment/SubmittedAssignment";
 
 
 
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
         element: <PrivateRoute> <CardDetails></CardDetails> </PrivateRoute>,
         loader: ()=>fetch('http://localhost:5000/allassignment')
         
+      },
+      {
+        path:"/submitassignment",
+        element: <PrivateRoute> <SubmittedAssignment></SubmittedAssignment> </PrivateRoute>,
+        loader:()=>fetch('http://localhost:5000/submitassignment')
       }
      ]
     },
