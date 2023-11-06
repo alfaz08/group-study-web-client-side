@@ -5,16 +5,19 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const UpdateAssignment = () => {
 
  const loadedAssignment =useLoaderData()
  const { _id,title,photo,des,type,marks,date,userEmail}=loadedAssignment;
- console.log(loadedAssignment);
+ 
   const {user} = useAuth()
   const currentUserEmail =user?.email;
   console.log(currentUserEmail);
     
+ 
+
 
   const [startDate, setStartDate] = useState(new Date());
 
@@ -47,7 +50,8 @@ const UpdateAssignment = () => {
       const data = response.data;
       console.log(data);
       if (data.modifiedCount > 0) {
-        alert('User updated successfully');
+        toast.success('Data updated successfully')
+        
       }
     })
     .catch(error => {
@@ -69,8 +73,8 @@ const UpdateAssignment = () => {
       <div className=" bg-base-200">
   <div className="hero-content flex-col ">
     <div className="text-center  lg:text-left">
-      <h1 className="text-5xl font-bold text-center">Assignment Form</h1>
-      <p className="py-6 text-center">Make your Assignment on this form</p>
+      <h1 className="text-5xl font-bold text-center">Assignment Update Form</h1>
+      <p className="py-6 text-center">Make your update as your need</p>
     </div>
     <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
       <form onSubmit={handleUpdate} className="card-body">
@@ -149,13 +153,15 @@ const UpdateAssignment = () => {
 
 
         <div className="form-control mt-6">
-        <button  className="btn border-black  bg-custom-color text-black hover:bg-black hover:text-white">Submit</button>
+        <button  className="btn border-black  bg-custom-color text-black hover:bg-black hover:text-white">Update</button>
         
         </div>
       </form>
     </div>
   </div>
+  
 </div>
+<Toaster/>
     </div>
   );
 };

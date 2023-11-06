@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -12,7 +12,7 @@ const SingleAllAssignment = ({assignment,currentUserEmail,newAssignmentList,setN
   const currentEmail =currentUserEmail;
   console.log(newAssignmentList);
   
-   
+  const navigate =useNavigate()
 
    
     const handleDelete=(id,email,currentEmail)=>{
@@ -44,8 +44,15 @@ const SingleAllAssignment = ({assignment,currentUserEmail,newAssignmentList,setN
 
     }
 
-    const errorShow=()=>{
-      toast.error('you will not able to update others assignment')
+    const errorShow=(currentEmail,userEmail)=>{
+      if(currentEmail&&userEmail){
+        toast.error('you will not able to update others assignment')
+      }
+      else{
+        // toast.error('please Login in')
+        navigate('/login')
+      }
+     
     }
 
    
@@ -63,18 +70,24 @@ const SingleAllAssignment = ({assignment,currentUserEmail,newAssignmentList,setN
     <p className="font-bold">Marks: {marks}</p>
     <p className="font-bold">Due Date: {date}</p>
     <div className="card-actions justify-center">
+      
     <button className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">See Details</button>
       
-
+    {/* <Link to={`/allassignment/${_id}`}>
+      <button className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">Update </button>
+      </Link> */}
 
     {
       currentEmail === userEmail ?
      <Link to={`/allassignment/${_id}`}>
       <button className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">Update </button>
       </Link>
+      
       :
-      <button onClick={errorShow} className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">Update </button>
-     
+      // <Link to={`/allassignment/${_id}`}>
+      // <button  className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">Update </button>
+      // </Link>
+      <button onClick={()=>errorShow(currentEmail,userEmail)} className=" text-black btn border-black bg-custom-color hover:bg-black hover:text-white">Update </button>
     }
 
 
