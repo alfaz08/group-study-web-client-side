@@ -8,7 +8,7 @@ const MyAssignment = () => {
   const submitAssignment =useLoaderData();
   const {user}=useAuth()
   const email=user.email
-  console.log(submitAssignment,email);
+  // console.log(submitAssignment,email);
   
   const myAssignment = submitAssignment.filter(item=>item.email===email)
  
@@ -26,10 +26,10 @@ const MyAssignment = () => {
           <p className="font-bold text-xl text-black">Title</p>
         </th>
         <th className=" bg-slate-400 text-center">
-          <p className="font-bold text-xl text-black">Marks</p>
+          <p className="font-bold text-xl text-black">Assignment Marks</p>
           </th>
           <th className=" bg-amber-400 text-center">
-          <p className="font-bold text-xl text-black">Examinee Name</p>
+          <p className="font-bold text-xl text-black">Obtained Marks</p>
           </th>
           <th className=" bg-slate-400 text-center">
           <p className="font-bold text-xl text-black">Status</p>

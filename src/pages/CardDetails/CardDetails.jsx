@@ -8,12 +8,12 @@ import SingleCardDetails from "./SingleCardDetails";
 const CardDetails = () => {
 
   const allData = useLoaderData();
-  console.log(allData);
+  // console.log(allData);
   const {id}=useParams()
-  console.log(id);
+  // console.log(id);
   
   const showData = allData.filter(item=>item._id===id)
-  console.log(showData);
+  // console.log(showData);
   
   return (
     <div>

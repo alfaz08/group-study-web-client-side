@@ -23,7 +23,7 @@ const SingleCardDetails = ({item}) => {
     const note =form.note.value;
 
     const submitAssignment={link,note,title,marks,name,email,date,status}
-    console.log(submitAssignment);
+    // console.log(submitAssignment);
     // form.reset()
 
     axios.post('http://localhost:5000/submitassignment', submitAssignment, {
@@ -112,18 +112,18 @@ const SingleCardDetails = ({item}) => {
         
 <div className="form-control">
   <label className="label">
-    <span className="label-text">Pdf Link</span>
+    <span className="label-text font-bold">Pdf Link</span>
   </label>
   
-  <input type="text" required name="link" placeholder="Title" className="text-black bg-custom-color input input-bordered" required />
+  <input type="text" required name="link" placeholder="Give assignment pdf drive link" className="text-black bg-custom-color input input-bordered" required />
 </div>
 
 <div className="form-control">
   <label className="label">
-    <span className="label-text">Short Note</span>
+    <span className="label-text font-bold">Short Note</span>
   </label>
   
-  <input type="text" required name="note" placeholder="Title" className="text-black bg-custom-color input input-bordered" required />
+  <input type="text" required name="note" placeholder="Give some short notes" className="text-black bg-custom-color input input-bordered" required />
 </div>
 
 

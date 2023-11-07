@@ -13,7 +13,7 @@ const Features = () => {
           setAssignments(res.data);
       })
   }, [url]);
-  console.log(assignments);
+  // console.log(assignments);
 
   return (
     <div className="mt-6 max-w-5xl mx-auto ">

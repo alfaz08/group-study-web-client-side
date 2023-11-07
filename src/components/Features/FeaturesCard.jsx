@@ -2,7 +2,7 @@
 
 const FeaturesCard = ({assignment}) => {
   const { title,photo,des,type,marks,date,userEmail}=assignment;
-  console.log(assignment);
+  // console.log(assignment);
   return (
     <div>
       <div className="card bg-custom-color shadow-xl">

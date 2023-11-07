@@ -10,13 +10,13 @@ const SingleAllAssignment = ({assignment,currentUserEmail,newAssignmentList,setN
  
   const { _id,title,photo,des,type,marks,date,userEmail}=assignment;
   const currentEmail =currentUserEmail;
-  console.log(newAssignmentList);
+  // console.log(newAssignmentList);
   
   const navigate =useNavigate()
 
    
     const handleDelete=(id,email,currentEmail)=>{
-      console.log(id,email,currentEmail);
+      // console.log(id,email,currentEmail);
   
       if(email===currentEmail){
            axios.delete(`http://localhost:5000/allassignment/${_id}`)

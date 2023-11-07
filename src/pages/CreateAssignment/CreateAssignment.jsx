@@ -71,7 +71,7 @@ const CreateAssignment = () => {
         
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Title</span>
+            <span className="label-text font-bold">Title</span>
           </label>
           
           <input type="text" name="title" placeholder="Title" className="text-black bg-custom-color input input-bordered" required />
@@ -80,7 +80,7 @@ const CreateAssignment = () => {
         <div className="form-control">
           <label className="label">
             
-            <span className="label-text">Description</span>
+            <span className="label-text font-bold">Description</span>
           </label>
           
           <input type="text"  name="des" placeholder="Description" className="text-black bg-custom-color input input-bordered h-28" required />
@@ -89,7 +89,7 @@ const CreateAssignment = () => {
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Assignment Photo URL</span>
+            <span className="label-text font-bold">Assignment Photo URL</span>
           </label>
           <input type="text" name="photo" placeholder="Assignment Photo" className="text-black bg-custom-color input input-bordered" required />
           
@@ -97,7 +97,7 @@ const CreateAssignment = () => {
 
         <div className="form-control">
   <label className="label">
-    <span className="label-text">Type</span>
+    <span className="label-text font-bold">Type</span>
   </label>
   <select name="type" className="input input-bordered text-black bg-custom-color " required>
     <option value="" hidden>
@@ -112,7 +112,7 @@ const CreateAssignment = () => {
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Marks</span>
+            <span className="label-text font-bold">Marks</span>
           </label>
           <input type="number" name="marks" placeholder="Marks" className="input input-bordered text-black bg-custom-color " required />
           

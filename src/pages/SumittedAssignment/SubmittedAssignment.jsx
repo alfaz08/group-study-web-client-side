@@ -25,7 +25,7 @@ const SubmittedAssignment = () => {
           <p className="font-bold text-xl text-black">Status</p>
           </th>
           <th className=" bg-blue-400 text-center">
-          <p className="font-bold text-xl text-black">Give Mark</p>
+          <p className="font-bold text-xl text-black">Marking</p>
          
           </th>
       </tr>

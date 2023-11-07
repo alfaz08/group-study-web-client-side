@@ -14,7 +14,7 @@ const UpdateAssignment = () => {
  
   const {user} = useAuth()
   const currentUserEmail =user?.email;
-  console.log(currentUserEmail);
+  // console.log(currentUserEmail);
     
  
 
