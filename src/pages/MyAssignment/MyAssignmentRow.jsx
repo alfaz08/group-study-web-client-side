@@ -1,5 +1,3 @@
-
-
 const MyAssignmentRow = ({item}) => {
   const {date,_id,email,link,marks,name,note,status,title} =item;
   return (
