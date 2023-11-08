@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 import SingleAllAssignment from "./SIngleAllAssignment";
@@ -15,7 +15,28 @@ const AllAssignment = () => {
   
   const [newAssignmentList,setNewAssignmentList] =useState(allData)
 
+ useEffect(()=>{
+  fetch('http://localhost:5000/allassignmentcount')
+  .then(res=>res.json())
+  .then(data=>console.log(data))
+ },[])
+
+ const {count} = useLoaderData()
+ console.log(count);
+ const totalCount =useLoaderData()
+ console.log('total',totalCount);
+
+ const itemPerPage =6;
+ const numberOfPages=Math.ceil(count/itemPerPage)
+    const pages=[]
+    for(let i=0;i<numberOfPages;i++){
+        pages.push(i)
+    }
+
+ console.log('pages',pages);
  
+
+
 
    const handleSelectChange=e=>{
     setSelectedValue(e.target.value)
@@ -40,7 +61,7 @@ const AllAssignment = () => {
     onChange={handleSelectChange}
     required>
     <option value="" hidden>
-      Select Difficulty Level
+      Filter By Difficulty Level
     </option>
     <option value="easy">easy</option>
     <option value="medium">medium</option>

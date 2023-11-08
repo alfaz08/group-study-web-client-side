@@ -22,7 +22,7 @@ const SingleCardDetails = ({item}) => {
     const link =form.link.value;
     const note =form.note.value;
 
-    const submitAssignment={link,note,title,marks,name,email,date,status}
+    const submitAssignment={_id,link,note,title,marks,name,email,date,status}
     // console.log(submitAssignment);
     // form.reset()
 
@@ -134,7 +134,9 @@ const SingleCardDetails = ({item}) => {
 
 
 <div className="form-control mt-6">
+
 <button  className="btn border-black  bg-custom-color text-black hover:bg-black hover:text-white">Submit</button>
+
 
 </div>
 

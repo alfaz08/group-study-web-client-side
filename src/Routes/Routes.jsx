@@ -12,7 +12,7 @@ import UpdateAssignment from "../pages/UpdateAssignment/UpdateAssignment";
 import CardDetails from "../pages/CardDetails/CardDetails";
 import SubmittedAssignment from "../pages/SumittedAssignment/SubmittedAssignment";
 import MarkAssignment from "../pages/MarkedAssignment/MarkAssignment";
-
+import SubmitMarking from "../pages/SumittedAssignment/SubmitMarking";
 
 
 
@@ -65,11 +65,16 @@ const router = createBrowserRouter([
       {
         path:"myassignment",
         element: <PrivateRoute> <MyAssignment></MyAssignment> </PrivateRoute>,
-       
+        loader:()=>fetch('http://localhost:5000/submitassignment')
       },
       {
         path:"markedassignment",
         element: <PrivateRoute> <MarkAssignment></MarkAssignment> </PrivateRoute>
+      },
+      {
+        path:'/marked/:id',
+        element: <PrivateRoute> <SubmitMarking></SubmitMarking> </PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/marked/${params.id}`)
       }
      ]
     },
