@@ -1,5 +1,7 @@
+
 const MyAssignmentRow = ({item}) => {
-  const {date,_id,email,link,marks,name,note,status,title} =item;
+  const {date,_id,email,link,marks,name,note,status,title,givenNumber,feedback} =item;
+   
   return (
     <tr>
         
@@ -9,10 +11,12 @@ const MyAssignmentRow = ({item}) => {
         <td className="bg-slate-200 font-bold text-center">
          {marks}
         </td>
-        <td className="bg-custom-color font-bold text-center">{name}</td>
+        <td className="bg-custom-color font-bold text-center">
+        {givenNumber ? givenNumber : "Not Checked yet"}
+          </td>
         <td className="bg-slate-200 font-bold text-center">{status}</td>
         <th className="bg-blue-200 font-bold text-center">
-        <button  className="btn border-black  bg-custom-color text-black hover:bg-black hover:text-white">Submit</button>
+        {feedback ? feedback : "Not Checked yet"}
         </th>
       </tr>
   );

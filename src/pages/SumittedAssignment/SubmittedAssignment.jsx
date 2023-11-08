@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import SubmittedAssignmentRow from "./SubmittedAssignmentRow";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const SubmittedAssignment = () => {
   const allData=useLoaderData()
@@ -9,7 +10,23 @@ const SubmittedAssignment = () => {
   
    const filter= allMarked.filter(item=>item.status==='pending')
 
+  //  const url ='http://localhost:5000/submitassignment'
+  //  //for jwt
+  //  useEffect(() => {
+  //   axios.get(url,{withCredentials:'include'})
+  //     .then(response => {
+  //       console.log(response.data); // Log the response data
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching data:', error);
+  //     });
+  // }, [url]); 
+
+
+
   return (
+
+
     <div>
       <div className="overflow-x-auto">
   <table className="table">

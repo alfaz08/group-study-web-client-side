@@ -1,10 +1,11 @@
 import { useLoaderData } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const SubmitMarking = () => {
   const loadedAssignment =useLoaderData()
   console.log(loadedAssignment);
   const { _id,title,photo,des,type,marks,link,date,userEmail}=loadedAssignment;
-console.log(title);
+
 
 const handleSubmitAssignment =(e,id)=>{
     e.preventDefault()
@@ -28,14 +29,15 @@ const handleSubmitAssignment =(e,id)=>{
     .then(data=>{
       console.log(data);
       if(data.modifiedCount>0){
-        console.log('data updated');
+        toast.success('Marking Done ')
+        form.reset()
       }
     })
 
  
 
 
-    console.log('dukci');
+    
     
 }
 
@@ -44,12 +46,15 @@ const handleSubmitAssignment =(e,id)=>{
       <form onSubmit={(e)=>handleSubmitAssignment(e,_id)} className="card-body">
 
         <div className="font-bold">
-       <h2> Assignment Title: {title}</h2>
+       <h2> Assignment Title: <span className="text-blue-700">{title}</span></h2>
         </div>
         <div className="font-bold">
         Assignment Link: <a className="text-blue-700" href={link} target="_blank" rel="noopener noreferrer">
        {link}
      </a>
+        </div>
+        <div className="font-bold">
+       <h2 >Total Marks: <span className="text-blue-700">{marks}</span></h2>
         </div>
 <div className="form-control">
   <label className="label">
@@ -77,7 +82,7 @@ const handleSubmitAssignment =(e,id)=>{
 
 
 </form>
-
+<Toaster/>
 
 </div>
    

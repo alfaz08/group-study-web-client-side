@@ -7,51 +7,51 @@ import { Link } from "react-router-dom";
 
 const SubmittedAssignmentRow = ({item}) => {
   const {date,_id,email,link,marks,name,note,status,title} =item;
-   
+   console.log(_id);
   const [marked,setMarked] =useState(item)
  
 
-  // console.log(item);
+  // // console.log(item);
 
-  const {user} = useAuth()
-  const submitId =_id;
+  // const {user} = useAuth()
+  // const submitId =_id;
 
-  const markedEmail =user?.email;
-  const markedName =user?.displayName
+  // const markedEmail =user?.email;
+  // const markedName =user?.displayName
 
-   const handleMarked=(e)=>{
+  //  const handleMarked=(e)=>{
     
-    e.preventDefault()
-    const form = e.target;
-    const status = 'completed'
-    const givenNumber =form.number.value;
-    const feedback =form.feedback.value;
+  //   e.preventDefault()
+  //   const form = e.target;
+  //   const status = 'completed'
+  //   const givenNumber =form.number.value;
+  //   const feedback =form.feedback.value;
 
-    const markedAssignment={submitId,markedEmail,markedName,status,givenNumber,feedback}
-    console.log(markedAssignment);
+  //   const markedAssignment={submitId,markedEmail,markedName,status,givenNumber,feedback}
+  //   console.log(markedAssignment);
 
-    axios.post('http://localhost:5000/markedassignment', markedAssignment, {
-  headers: {
-    'Content-Type': 'application/json'
-  }
-   })
-  .then(response => {
-  console.log(response.data);
-  if(response.data.insertedId){
-    toast.success('Successfully assignment marked');
+  //   axios.post('http://localhost:5000/markedassignment', markedAssignment, {
+  // headers: {
+  //   'Content-Type': 'application/json'
+  // }
+  //  })
+  // .then(response => {
+  // console.log(response.data);
+  // if(response.data.insertedId){
+  //   toast.success('Successfully assignment marked');
     
     
-    form.reset()
-     }
+  //   form.reset()
+  //    }
 
-   })
-  .catch(error => {
-  console.error(error);
-    });
+  //  })
+  // .catch(error => {
+  // console.error(error);
+  //   });
    
     
 
-  }
+  // }
 
   return (
     

@@ -5,8 +5,8 @@ const FeaturesCard = ({assignment}) => {
   // console.log(assignment);
   return (
     <div>
-      <div className="card bg-custom-color shadow-xl">
-  <figure><img className=" w-full h-52" src={photo} alt="Shoes" /></figure>
+      <div className="card h-[500px] bg-custom-color shadow-xl">
+  <figure><img className=" w-full h-full" src={photo} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
       {title}
