@@ -33,7 +33,7 @@ const CreateAssignment = () => {
   
 
    //post data
-   axios.post('http://localhost:5000/allassignment', allAssignment, {
+   axios.post('https://group-study-server-mhdzltc20-alfaz-hossains-projects.vercel.app/allassignment', allAssignment, {
   headers: {
     'Content-Type': 'application/json'
   }

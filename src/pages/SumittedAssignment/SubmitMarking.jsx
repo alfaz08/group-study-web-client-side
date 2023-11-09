@@ -16,12 +16,25 @@ const handleSubmitAssignment =(e,id)=>{
     const givenNumber =form.marked.value;
     const feedback =form.feedback.value;
     console.log(currentUserEmail);
+
+
+
+
+
+
+
+
+
+
+    
+
+
      if(currentUserEmail===email){
-      toast.error('you cannot give mark in your assignment')
+      toast.error('you cannot give marks in your submit assignment')
      }
      else{
 
-      fetch(`http://localhost:5000/marked/${id}`,{
+      fetch(`https://group-study-server-mhdzltc20-alfaz-hossains-projects.vercel.app/marked/${id}`,{
       method:'PATCH',
       headers:{
         'content-type':'application/json'

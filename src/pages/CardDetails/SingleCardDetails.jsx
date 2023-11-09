@@ -26,7 +26,7 @@ const SingleCardDetails = ({item}) => {
     // console.log(submitAssignment);
     // form.reset()
 
-    axios.post('http://localhost:5000/submitassignment', submitAssignment, {
+    axios.post('https://group-study-server-mhdzltc20-alfaz-hossains-projects.vercel.app/submitassignment', submitAssignment, {
   headers: {
     'Content-Type': 'application/json'
   }

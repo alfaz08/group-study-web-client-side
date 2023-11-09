@@ -19,7 +19,7 @@ const SingleAllAssignment = ({assignment,currentUserEmail,newAssignmentList,setN
       // console.log(id,email,currentEmail);
   
       if(email===currentEmail){
-           axios.delete(`http://localhost:5000/allassignment/${_id}`)
+           axios.delete(`https://group-study-server-mhdzltc20-alfaz-hossains-projects.vercel.app/allassignment/${_id}`)
     .then(response => {
       console.log(response.data);
       if (response.data.deletedCount > 0) {
@@ -60,7 +60,7 @@ const SingleAllAssignment = ({assignment,currentUserEmail,newAssignmentList,setN
   return (
     <div>
       <div className="card h-[500px] bg-custom-color shadow-xl">
-  <figure><img className=" w-full h-40" src={photo} alt="Shoes" /></figure>
+  <img className=" w-full h-32" src={photo} alt="Shoes" />
   <div className="card-body">
     <h2 className="card-title">
       {title}

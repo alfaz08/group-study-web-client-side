@@ -16,7 +16,7 @@ const AllAssignment = () => {
   const [newAssignmentList,setNewAssignmentList] =useState(allData)
 
  useEffect(()=>{
-  fetch('http://localhost:5000/allassignmentcount')
+  fetch('https://group-study-server-mhdzltc20-alfaz-hossains-projects.vercel.app/allassignmentcount')
   .then(res=>res.json())
   .then(data=>console.log(data))
  },[])

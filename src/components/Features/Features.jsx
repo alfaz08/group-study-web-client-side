@@ -6,7 +6,7 @@ import FeaturesCard from "./FeaturesCard";
 
 const Features = () => {
   const [assignments, setAssignments] = useState([]);
-  const url = 'http://localhost:5000/allassignment';
+  const url = 'https://group-study-server-mhdzltc20-alfaz-hossains-projects.vercel.app/allassignment';
   useEffect(() => {
       axios.get(url)
       .then(res => {

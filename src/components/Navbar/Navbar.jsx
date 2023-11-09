@@ -79,6 +79,12 @@ const Navbar = () => {
       <Link to="/login"><button className="btn  bg-base-200  font-bold hover:bg-black hover:text-white">Login</button></Link>
     }
   </div>
+
+
+
+
+
+
   </div>
   );
 };

@@ -40,7 +40,7 @@ const UpdateAssignment = () => {
   
    axios({
     method: 'put',
-    url: `http://localhost:5000/update/${loadedAssignment._id}`,
+    url: `https://group-study-server-mhdzltc20-alfaz-hossains-projects.vercel.app/update/${loadedAssignment._id}`,
     headers: {
       'Content-Type': 'application/json'
     },

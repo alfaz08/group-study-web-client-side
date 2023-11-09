@@ -30,7 +30,7 @@ const SubmittedAssignmentRow = ({item}) => {
   //   const markedAssignment={submitId,markedEmail,markedName,status,givenNumber,feedback}
   //   console.log(markedAssignment);
 
-  //   axios.post('http://localhost:5000/markedassignment', markedAssignment, {
+  //   axios.post('https://group-study-server-mhdzltc20-alfaz-hossains-projects.vercel.app/markedassignment', markedAssignment, {
   // headers: {
   //   'Content-Type': 'application/json'
   // }

@@ -10,7 +10,7 @@ const SubmittedAssignment = () => {
   
    const filter= allMarked.filter(item=>item.status==='pending')
 
-  //  const url ='http://localhost:5000/submitassignment'
+  //  const url ='https://group-study-server-mhdzltc20-alfaz-hossains-projects.vercel.app/submitassignment'
   //  //for jwt
   //  useEffect(() => {
   //   axios.get(url,{withCredentials:'include'})
