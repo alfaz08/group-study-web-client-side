@@ -1,19 +1,27 @@
 import { useLoaderData } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import useAuth from "../../components/hooks/useAuth";
 
 const SubmitMarking = () => {
   const loadedAssignment =useLoaderData()
   console.log(loadedAssignment);
-  const { _id,title,photo,des,type,marks,link,date,userEmail}=loadedAssignment;
-
+  const { _id,title,photo,des,type,marks,link,date,email}=loadedAssignment;
+  const {user} = useAuth()
+  const currentUserEmail =user?.email;
+  console.log(currentUserEmail);
 
 const handleSubmitAssignment =(e,id)=>{
     e.preventDefault()
     const form = e.target;
     const givenNumber =form.marked.value;
     const feedback =form.feedback.value;
+    console.log(currentUserEmail);
+     if(currentUserEmail===email){
+      toast.error('you cannot give mark in your assignment')
+     }
+     else{
 
-     fetch(`http://localhost:5000/marked/${id}`,{
+      fetch(`http://localhost:5000/marked/${id}`,{
       method:'PATCH',
       headers:{
         'content-type':'application/json'
@@ -33,6 +41,8 @@ const handleSubmitAssignment =(e,id)=>{
         form.reset()
       }
     })
+     }
+     
 
  
 
