@@ -15,10 +15,19 @@ const Faq = () => {
   <div className="collapse collapse-arrow join-item border border-base-300">
     <input type="radio" name="my-accordion-4"  /> 
     <div className="collapse-title text-xl font-medium">
-      Which kind of users use our website?
+    What is the purpose of this group study website?
     </div>
     <div className="collapse-content"> 
-      <p>All types of student who read in university level are capable of using our website.</p>
+      <p>This website is designed to help students find and organize group study sessions, collaborate with peers, and enhance their learning experience through group study.</p>
+    </div>
+  </div>
+  <div className="collapse m collapse-arrow join-item border border-base-300">
+    <input type="radio" name="my-accordion-4" /> 
+    <div className="collapse-title text-xl font-medium">
+    What if I need technical support or assistance with the website?
+    </div>
+    <div className="collapse-content"> 
+      <p>If you encounter technical issues or need help with the website, you can contact our support team via the provided contact information for prompt assistance.</p>
     </div>
   </div>
   <div className="collapse m collapse-arrow join-item border border-base-300">
@@ -30,6 +39,10 @@ const Faq = () => {
       <p>All assignment are asses by top teachers.</p>
     </div>
   </div>
+
+
+
+
   <div className="collapse collapse-arrow join-item border border-base-300">
     <input type="radio" name="my-accordion-4" /> 
     <div className="collapse-title text-xl font-medium">
@@ -37,6 +50,15 @@ const Faq = () => {
     </div>
     <div className="collapse-content"> 
       <p>Beacause every student  can submit assignment and judge themselves.</p>
+    </div>
+  </div>
+  <div className="collapse collapse-arrow join-item border border-base-300">
+    <input type="radio" name="my-accordion-4" /> 
+    <div className="collapse-title text-xl font-medium">
+    How do I find study materials and resources on this website?
+    </div>
+    <div className="collapse-content"> 
+      <p>We offer a resource library where you can find study materials, notes, and resources shared by other users. You can search for specific topics or subjects.</p>
     </div>
   </div>
 </div>

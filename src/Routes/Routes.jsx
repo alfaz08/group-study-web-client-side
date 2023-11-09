@@ -14,7 +14,7 @@ import SubmittedAssignment from "../pages/SumittedAssignment/SubmittedAssignment
 import MarkAssignment from "../pages/MarkedAssignment/MarkAssignment";
 import SubmitMarking from "../pages/SumittedAssignment/SubmitMarking";
 
-
+import SubmissionForm from "../SubmissionForm/SubmissionForm";
 
 const router = createBrowserRouter([
     {
@@ -75,6 +75,11 @@ const router = createBrowserRouter([
         path:'/marked/:id',
         element: <PrivateRoute> <SubmitMarking></SubmitMarking> </PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:5000/marked/${params.id}`)
+      },
+      {
+        path:"others",
+        element: <SubmissionForm></SubmissionForm>,
+        loader:()=>fetch('http://localhost:5000/finalassignment')
       }
      ]
     },

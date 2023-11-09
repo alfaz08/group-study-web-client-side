@@ -22,7 +22,7 @@ const SingleCardDetails = ({item}) => {
     const link =form.link.value;
     const note =form.note.value;
 
-    const submitAssignment={_id,link,note,title,marks,name,email,date,status}
+    const submitAssignment={link,note,title,marks,name,email,date,status}
     // console.log(submitAssignment);
     // form.reset()
 

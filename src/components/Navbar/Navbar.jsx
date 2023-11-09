@@ -28,7 +28,7 @@ const Navbar = () => {
     user && 
     <>
     <li><NavLink to="/createassignment">Create Assignment</NavLink></li>
-    <li><NavLink to="/myassignment">My Assignment</NavLink></li>
+    <li><NavLink to="/myassignment">My Submission</NavLink></li>
     <li><NavLink to="/submitassignment">Submitted Assignment</NavLink></li>
     </>
   }
