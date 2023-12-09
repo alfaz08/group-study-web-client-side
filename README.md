@@ -20,4 +20,10 @@
 - Logged in user show his sumission list
 - When log in generate token.
 
+- ## Technology
+
+- Front End: JavaScript,React,Tailwind.
+- Back End: MongoDB,NodeJS,ExpressJS.
+- Tools: Firebase,Vercel.
+
 ## Live Link: https://group-study-web.web.app/
